@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { StatCard } from '@/components/StatCard';
-import { ApplicationCard } from '@/components/ApplicationCard';
+import { ApplicationListCard } from '@/components/ApplicationListCard';
 import { ProgressBar } from '@/components/ProgressBar';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { mockApplications, workstreamStats } from '@/data/mockData';
 import { 
   Building2, 
@@ -53,9 +54,12 @@ const Index = () => {
               <h1 className="text-2xl font-bold text-foreground">Talbot to AIG Migration Dashboard</h1>
               <p className="text-muted-foreground">Real-time migration progress tracking</p>
             </div>
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-              <Activity className="h-4 w-4 animate-pulse-glow text-primary" />
-              <span>Live Status</span>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                <Activity className="h-4 w-4 animate-pulse-glow text-primary" />
+                <span>Live Status</span>
+              </div>
+              <ThemeToggle />
             </div>
           </div>
         </div>
@@ -142,13 +146,12 @@ const Index = () => {
           </TabsList>
           
           <TabsContent value={selectedWorkstream} className="mt-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="space-y-4">
               {filterApplicationsByWorkstream(selectedWorkstream).map((app, index) => (
-                <ApplicationCard
+                <ApplicationListCard
                   key={app.id}
                   application={app}
-                  className="animate-slide-in-left"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="animate-fade-in"
                 />
               ))}
             </div>

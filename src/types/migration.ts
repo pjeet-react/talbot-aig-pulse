@@ -7,6 +7,15 @@ export interface Application {
   components: Component[];
   lastUpdated: string;
   nextMilestone?: string;
+  phases?: Phase[];
+}
+
+export interface Phase {
+  id: string;
+  name: string;
+  description?: string;
+  environments: Environment[];
+  components: Component[];
 }
 
 export interface Environment {

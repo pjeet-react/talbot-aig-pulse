@@ -9,12 +9,64 @@ export const mockApplications: Application[] = [
     currentStage: 'Production',
     lastUpdated: '2024-08-10',
     nextMilestone: 'Complete migration - Aug 20',
+    phases: [
+      {
+        id: 'ba-1-p1',
+        name: 'Customer Portal - Phase 1',
+        description: 'Core functionality migration',
+        environments: [
+          { name: 'DEV', status: 'Completed', completedDate: '2024-07-15' },
+          { name: 'DEV1', status: 'Completed', completedDate: '2024-07-18' },
+          { name: 'QA', status: 'Completed', completedDate: '2024-07-25' },
+          { name: 'UAT', status: 'Completed', completedDate: '2024-08-01' },
+          { name: 'PROD', status: 'Completed', completedDate: '2024-08-05' }
+        ],
+        components: [
+          {
+            id: 'cp-api-p1',
+            name: 'Customer API Core',
+            type: 'Web API',
+            techStack: ['.NET Core', 'SQL Server', 'Redis'],
+            endpoints: ['https://api.customer.talbot.com'],
+            githubRepo: 'https://github.com/talbot/customer-api',
+            devOpsRepo: 'https://github.com/talbot/customer-devops',
+            jenkinsUrl: 'https://jenkins.talbot.com/customer-api',
+            status: 'Completed'
+          }
+        ]
+      },
+      {
+        id: 'ba-1-p2',
+        name: 'Customer Portal - Phase 2',
+        description: 'Advanced features and analytics',
+        environments: [
+          { name: 'DEV', status: 'Completed', completedDate: '2024-08-01' },
+          { name: 'DEV1', status: 'Completed', completedDate: '2024-08-03' },
+          { name: 'QA', status: 'In Progress' },
+          { name: 'UAT', status: 'Not Started' },
+          { name: 'PROD', status: 'Not Started' }
+        ],
+        components: [
+          {
+            id: 'cp-ui-p2',
+            name: 'Customer UI Enhanced',
+            type: 'UI',
+            techStack: ['React', 'TypeScript', 'Tailwind'],
+            endpoints: ['https://customer.talbot.com'],
+            githubRepo: 'https://github.com/talbot/customer-ui',
+            devOpsRepo: 'https://github.com/talbot/customer-ui-devops',
+            jenkinsUrl: 'https://jenkins.talbot.com/customer-ui',
+            status: 'In Progress'
+          }
+        ]
+      }
+    ],
     environments: [
       { name: 'DEV', status: 'Completed', completedDate: '2024-07-15' },
       { name: 'DEV1', status: 'Completed', completedDate: '2024-07-18' },
-      { name: 'QA', status: 'Completed', completedDate: '2024-07-25' },
-      { name: 'UAT', status: 'Completed', completedDate: '2024-08-01' },
-      { name: 'PROD', status: 'In Progress' }
+      { name: 'QA', status: 'In Progress' },
+      { name: 'UAT', status: 'Not Started' },
+      { name: 'PROD', status: 'Not Started' }
     ],
     components: [
       {
